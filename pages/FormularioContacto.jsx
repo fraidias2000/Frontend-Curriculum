@@ -15,7 +15,7 @@ function FormularioContacto() {
   e.preventDefault();
 
   try {
-    const response = await fetch("http://localhost:8281/api/contacto", {
+    const response = await fetch("https://backend-curriculum.onrender.com/api/contacto", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

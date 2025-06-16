@@ -8,7 +8,7 @@ function Curriculum() {
   const [cv, setCv] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8281/api/curriculum/1")
+    fetch("https://backend-curriculum.onrender.com/api/curriculum/1")
       .then((res) => res.json())
       .then((data) => setCv(data))
       .catch((error) => console.error("Error cargando el CV:", error));
@@ -56,8 +56,10 @@ function Curriculum() {
               <h2>Formación Académica</h2>
               {cv.formacion.map((item, index) => (
                 <div key={index} className="cv-subsection">
-                  <strong>{item.titulo}</strong>
+                  <p><strong>{item.puesto_trabajo}</strong></p>
+                  <p><strong>{item.titulo}</strong></p>
                   <p>{item.tiempo} | {item.lugar}</p>
+                  
                 </div>
               ))}
             </motion.div>
@@ -65,17 +67,21 @@ function Curriculum() {
             {/* Experiencia */}
             <motion.div className="cv-card" whileHover={{ scale: 0.97 }}>
               <h2>Historial Laboral</h2>
-             {cv.experiencia.map((item, index) => (
-              <div key={index} className="cv-subsection">
-                <strong>{item.puesto_trabajo}</strong>
-                <p>{item.tiempo} | {item.lugar}</p>
-                <ul>
-                  {item.descripcion_trabajo.map((desc, i) => (
-                    <li key={i} className="descripcion-item">{desc}</li>
+              {cv.experiencia.map((item, index) => (
+                <div key={index} className="cv-subsection">
+                  <strong>{item.puesto_trabajo}</strong>
+                  <p>{item.tiempo} | {item.lugar}</p>
+                  <ul>
+                  {item.descripcion_trabajo
+                    .split('.')
+                    .map((desc, i) => desc.trim())
+                    .filter((desc) => desc.length > 0)
+                    .map((desc, i) => (
+                      <li key={i}> {desc}.</li>
                   ))}
                 </ul>
-              </div>
-            ))}
+                </div>
+              ))}
             </motion.div>
 
             {/* Aptitudes */}
@@ -83,7 +89,7 @@ function Curriculum() {
               <h2>Aptitudes</h2>
               <ul>
                 {cv.aptitudes.map((item, index) => (
-                  <li key={index}>• {item.descripcion}</li>
+                  <li key={index}> {item.descripcion}</li>
                 ))}
               </ul>
             </motion.div>
