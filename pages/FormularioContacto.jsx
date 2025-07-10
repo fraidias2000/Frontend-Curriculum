@@ -14,8 +14,8 @@ function FormularioContacto() {
   const manejarSubmit = async (e) => {
   e.preventDefault();
 
-  try {
-    const response = await fetch("https://backend-curriculum.onrender.com/api/contacto", {
+  try {  
+     const response = await fetch("https://backend-curriculum-3.onrender.com/api/contacto", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
