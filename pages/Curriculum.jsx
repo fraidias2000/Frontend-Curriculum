@@ -8,8 +8,8 @@ function Curriculum() {
   const [cv, setCv] = useState(null);
 
   useEffect(() => {
-    //fetch("https://backend-curriculum-3.onrender.com/api/curriculum/1")
-    fetch("http://localhost:8080/api/curriculum/1")
+    fetch("https://backend-curriculum-3.onrender.com/api/curriculum/1")
+   // fetch("http://localhost:8080/api/curriculum/1")
       .then((res) => res.json())
       .then((data) => setCv(data))
       .catch((error) => console.error("Error cargando el CV:", error));
