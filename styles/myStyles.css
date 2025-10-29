@@ -15,8 +15,8 @@ body {
 }
 
 .perfil-img {
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -43,9 +43,15 @@ body {
   width: 100%;
   margin: 0 auto;
   align-items: stretch;
+  flex: 1;  
 }
 
-.col-izquierda,
+.col-izquierda {
+display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1; 
+}
 .col-derecha {
   display: flex;
   flex-direction: column;
@@ -73,17 +79,38 @@ body {
   justify-content: center;
 }
 
+
+
+.card-perfil {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .nombre {
   font-size: 1.75rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
-
+.text-align-letf{
+  text-align: left;
+}
 .descripcion {
   color: #e5e7eb;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
-
+.subrayado {
+  text-decoration: underline;
+}
 .btn-cv {
   background-color: #2563eb;
   color: white;
@@ -126,6 +153,21 @@ body {
   transition: transform 0.3s ease;
   text-align: left;
   color: #f0f0f0;
+  
+}
+
+
+.cv-card-formacion {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  text-align: left;
+  color: #f0f0f0;
+  line-height: 0.9;
+  
 }
 
 .cv-card h2 {
